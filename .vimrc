@@ -8,6 +8,8 @@ set noswapfile
 set autoindent
 set guioptions-=T
 set visualbell
+set autowrite
+set bs=2
 syntax on
 
 set nowrap
@@ -25,18 +27,18 @@ set mouse=a
 
 let mapleader=','
 
-map <leader>g <c-w>l
-map <leader>s <c-w>h
-map <leader>f <c-w>j
-map <leader>d <c-w>k
+map <leader>l <c-w>l
+map <leader>h <c-w>h
+map <leader>j <c-w>j
+map <leader>k <c-w>k
 
 nmap <leader>1 :color wombat256<CR>
 nmap <leader>2 :color desert<CR>
 
 nmap <leader>q :%s/\s\+$//g<CR>
 
-vnoremap < <gV
-vnoremap > >gV
+vnoremap < <gv
+vnoremap > >gv
 
 set hlsearch
 noremap <C-n> :nohl<CR>
