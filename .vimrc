@@ -41,29 +41,25 @@ vnoremap < <gv
 vnoremap > >gv
 
 set hlsearch
-noremap <C-n> :nohl<CR>
-vnoremap <C-n> :nohl<CR>
-inoremap <C-n> :nohl<CR>
+" TODO: fix the remove highlights shortcuts
+" noremap <C-n> :nohl<CR>
+" vnoremap <C-n> :nohl<CR>
+" inoremap <C-n> :nohl<CR>
 
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
+" "enable this if pathogen plugin is installed
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
 
 set foldmethod=indent
 set foldlevel=99
 filetype on
-let g:pyflakes_use_quickfix = 0
-let g:pep8_map='<leader>8'
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
-map <leader>j :call RopeGotoDefinition()<CR>
-map <leader>r :RopeRename<CR>
 nmap <leader>a <Esc>:Ack!
-
-
 
 " Add the virtualenv's site-packages to vim path
 py << EOF
@@ -79,15 +75,32 @@ EOF
 
 "// ;# http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide
 
-
-
 au InsertLeave * match ExtraWhitespace /\s\+$/
 set t_Co=256
 color wombat256
-highlight ColorColumn guibg=#0c0201
-highlight ExtraWhitespace guibg=#00ff00     
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=#9988BB
+highlight ColorColumn ctermbg=24 guibg=#080201
+highlight ExtraWhitespace ctermbg=49 guibg=#00ff00
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=49 guibg=#9988BB
 autocmd ColorScheme * highlight ColorColumn guibg=#0c0c0c
+
+set guifont=PT_Mono:h14
+set ruler
+set cursorline
+
+" set showcmd
+" filetype indent on
+" set wildmenu
+set lazyredraw
+
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+nnoremap <space> za
+
+set wrap
+nnoremap j gj
+nnoremap k gk
 
 " VIM Python as an IDE
 " https://github.com/mbrochh/vim-as-a-python-ide
